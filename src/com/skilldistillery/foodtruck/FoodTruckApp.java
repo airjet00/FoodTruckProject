@@ -28,19 +28,17 @@ public class FoodTruckApp {
 		 * user's input, and it is added to the array
 		 * *** Truck id is NOT input by the user, but
 		 * assigned automatically in the FoodTruck constructor
-		 * 
-		 */
-		/*
 		 * If the user inputs quit for the food truck name, input 
 		 * ends immediately and the program continues.
 		 */
 		String tkName, food; 
 		int rating; 
-		
+		//loop obj array for info input
 		for(int i = 0; i < allTrucks.length; i++) {
 			System.out.println("Enter food truck name or quit if finished entering trucks: ");
 			tkName = kb.nextLine();
 			
+			//quit check
 			if(tkName.equals("Quit") || tkName.equals("quit")) {
 				break;
 			}
@@ -50,15 +48,13 @@ public class FoodTruckApp {
 			rating = kb.nextInt();
 			kb.nextLine();
 			
-			
+			//set truck obj info
 			allTrucks[i].setTruckName(tkName);
 			allTrucks[i].setFoodType(food);
 			allTrucks[i].setRating(rating);
 			allTrucks[i].setTruckId((int)(Math.random() * 10000));
 			allTrucks[i].getTruckId();		
 	
-			
-
 			//Check for duplicate id
 			for (FoodTruck foodTruck : allTrucks) {
 				
@@ -67,9 +63,6 @@ public class FoodTruckApp {
 					allTrucks[i].setTruckId((int)(Math.random() * 10000));
 				}
 			} 
-				
-			
-
 		}
 		/*
 		 * After input is complete, the user sees a menu from which 
@@ -79,10 +72,6 @@ public class FoodTruckApp {
 			See the average rating of food trucks.
 			Display the highest-rated food truck.
 			Quit the program.
-		 */
-		
-		
-		/*
 		 * After choosing a menu item, the user sees the menu again 
 		 * and can choose another item until the choose to quit.
 		 */
@@ -91,7 +80,7 @@ public class FoodTruckApp {
 		boolean exit = true;
 		
 		while(exit) {
-			
+			//Menu
 			System.out.println();
 			System.out.println("Select a number from the menu: ");
 			System.out.println();
@@ -107,7 +96,7 @@ public class FoodTruckApp {
 		
 			switch(userInput) {
 		
-
+				//Display truck info
 				case 1: for (FoodTruck foodTruck : allTrucks) {
 							if(foodTruck.getTruckName() != null) {
 								
@@ -120,7 +109,7 @@ public class FoodTruckApp {
 						}
 						break;
 				
-				//TODO add double to output avg
+				//Display avg rating
 				case 2:	int result = 0; 
 						int count = 0;
 						for (FoodTruck foodTruck : allTrucks) {
@@ -130,9 +119,10 @@ public class FoodTruckApp {
 							}
 						
 						}
-						System.out.println("The average rating is of food trucks is: " + (result/count));
+						System.out.println("The average rating is of food trucks is: " + ((double)result/(double)count));
 						break;
 
+				//get high score		
 				//TODO display multiple tied high scores
 				case 3: FoodTruck highRated = new FoodTruck();
 						highRated = allTrucks[0];
@@ -146,12 +136,12 @@ public class FoodTruckApp {
 						System.out.println(highRated);
 						break;
 				
+				// exit
 				case 4: System.out.println("Goodbye");
 						exit = false;
 						break;
 			}
 		}
-	
 	}
 }
 
