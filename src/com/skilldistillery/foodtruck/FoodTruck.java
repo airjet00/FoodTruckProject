@@ -9,10 +9,15 @@ public class FoodTruck {
 	private String truckName;
 	private String foodType;
 	private int rating;
+	private int truckId;
 	
 	void FoodTruck(String truckName, String foodType, 
-					int rating, int truckId) {
+					int rating) {
 		//truck id  assigned
+		this.truckName = truckName;
+		this.foodType = foodType;
+		this.rating = rating;
+		truckId = (int)(Math.random() * 10000);// TODO Need to check truck ID match
 		
 	}
 
@@ -56,6 +61,15 @@ public class FoodTruck {
 	 */
 	public void setRating(int rating) {
 		this.rating = rating;
+	}
+
+	public int getTruckId() {
+		return truckId;
+	}
+	
+	public int setTruckId() {
+		truckId = (int)(Math.random() * 10000);
+		return truckId;
 	}
 
 	@Override
