@@ -21,6 +21,19 @@ public class FoodTruckApp {
 		allTrucks[3] = truck4;
 		allTrucks[4] = truck5;
 		
+		/*
+		 * user prompt to input name, food type, and rating
+		 * for up to five food trucks. For each set of input
+		 * a FoodTruck object is created, its fields set the 
+		 * user's input, and it is added to the array
+		 * *** Truck id is NOT input by the user, but
+		 * assigned automatically in the FoodTruck constructor
+		 * 
+		 */
+		/*
+		 * If the user inputs quit for the food truck name, input 
+		 * ends immediately and the program continues.
+		 */
 		String tkName, food; 
 		int rating; 
 		
@@ -58,6 +71,22 @@ public class FoodTruckApp {
 			
 
 		}
+		/*
+		 * After input is complete, the user sees a menu from which 
+		 * they can choose to:
+
+			List all existing food trucks.
+			See the average rating of food trucks.
+			Display the highest-rated food truck.
+			Quit the program.
+		 */
+		
+		
+		/*
+		 * After choosing a menu item, the user sees the menu again 
+		 * and can choose another item until the choose to quit.
+		 */
+				
 		
 		boolean exit = true;
 		
@@ -78,7 +107,7 @@ public class FoodTruckApp {
 		
 			switch(userInput) {
 		
-				//TODO clean up output
+
 				case 1: for (FoodTruck foodTruck : allTrucks) {
 							if(foodTruck.getTruckName() != null) {
 								
@@ -125,42 +154,15 @@ public class FoodTruckApp {
 	
 	}
 }
-	/*
-	 * After input is complete, the user sees a menu from which 
-	 * they can choose to:
 
-		List all existing food trucks.
-		See the average rating of food trucks.
-		Display the highest-rated food truck.
-		Quit the program.
-	 */
-	
-	/*
-	 * If the user inputs quit for the food truck name, input 
-	 * ends immediately and the program continues.
-	 */
+
 	
 
 	
 
-	
-	/*
-	 * user prompt to input name, food type, and rating
-	 * for up to five food trucks. For each set of input
-	 * a FoodTruck object is created, its fields set the 
-	 * user's input, and it is added to the array
-	 * *** Truck id is NOT input by the user, but
-	 * assigned automatically in the FoodTruck constructor
-	 * 
-	 */
 
 
 
 
-	
-	/*
-	 * After choosing a menu item, the user sees the menu again 
-	 * and can choose another item until the choose to quit.
-	 */
-			
+
 
