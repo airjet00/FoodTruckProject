@@ -47,12 +47,15 @@ public class FoodTruckApp {
 			
 
 			//Check for duplicate id
-//			for (int n = 0; n < allTrucks.length; n++) {
-//				
-//				if ( truckId == allTrucks[n].getTruckId()) {
-//					truckId = allTrucks[i].setTruckId();
-//				}
-//			}
+			for (FoodTruck foodTruck : allTrucks) {
+				
+				if ( allTrucks[i].getTruckId() == foodTruck.getTruckId()
+						&& !allTrucks[i].getTruckName().equals(foodTruck.getTruckName())) {
+					allTrucks[i].setTruckId((int)(Math.random() * 10000));
+				}
+			} 
+				
+			
 
 		}
 		

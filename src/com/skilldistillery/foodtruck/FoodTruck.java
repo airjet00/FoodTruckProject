@@ -73,17 +73,17 @@ public class FoodTruck {
 	public void setTruckId(int truckId) {
 		this.truckId = truckId;
 	}
-	public String getAllFoodTrucks(FoodTruck [] allTrucks) {
-		String result = "";
-		for (int i = 0; i < allTrucks.length; i++) {
-			result = allTrucks[i].getTruckName() + allTrucks[i].getFoodType() 
-					+ allTrucks[i].getRating() + allTrucks[i].getTruckId() 
-					+ "\n\n";
-					
-		}
-		
-		return result;
-	}
+//	public String getAllFoodTrucks(FoodTruck [] allTrucks) {
+//		String result = "";
+//		for (int i = 0; i < allTrucks.length; i++) {
+//			result = allTrucks[i].getTruckName() + allTrucks[i].getFoodType() 
+//					+ allTrucks[i].getRating() + allTrucks[i].getTruckId() 
+//					+ "\n\n";
+//					
+//		}
+//		
+//		return result;
+//	}
 
 	@Override
 	public String toString() {
