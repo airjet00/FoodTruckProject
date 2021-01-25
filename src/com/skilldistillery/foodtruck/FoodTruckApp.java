@@ -79,7 +79,8 @@ public class FoodTruckApp {
 				case 1: for (FoodTruck foodTruck : allTrucks) {
 							if(foodTruck.getTruckName() != null) {
 								
-								System.out.println(foodTruck);
+								System.out.println(foodTruck.toString());
+
 							}
 							else {
 								break;
