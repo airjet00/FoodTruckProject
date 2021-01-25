@@ -9,15 +9,18 @@ public class FoodTruck {
 	private String truckName;
 	private String foodType;
 	private int rating;
-	private int truckId;
+	private int truckId; //=(int)(Math.random() * 10000);
 	
 	void FoodTruck(String truckName, String foodType, 
-					int rating) {
+					int rating, int truckId) {
 		//truck id  assigned
 		this.truckName = truckName;
 		this.foodType = foodType;
 		this.rating = rating;
-		truckId = (int)(Math.random() * 10000);// TODO Need to check truck ID match
+		this.truckId =truckId;
+		
+	}
+	void FoodTruck () {
 		
 	}
 
@@ -63,13 +66,23 @@ public class FoodTruck {
 		this.rating = rating;
 	}
 
+
 	public int getTruckId() {
 		return truckId;
 	}
-	
-	public int setTruckId() {
-		truckId = (int)(Math.random() * 10000);
-		return truckId;
+	public void setTruckId(int truckId) {
+		this.truckId = truckId;
+	}
+	public String getAllFoodTrucks(FoodTruck [] allTrucks) {
+		String result = "";
+		for (int i = 0; i < allTrucks.length; i++) {
+			result = allTrucks[i].getTruckName() + allTrucks[i].getFoodType() 
+					+ allTrucks[i].getRating() + allTrucks[i].getTruckId() 
+					+ "\n\n";
+					
+		}
+		
+		return result;
 	}
 
 	@Override

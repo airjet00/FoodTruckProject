@@ -7,6 +7,7 @@ public class FoodTruckApp {
 		//array to store up to five food trucks objects
 		//call run method
 		FoodTruck allTrucks[] = new FoodTruck[5];
+		FoodTruck tk = new FoodTruck();
 		
 		FoodTruck truck1 = new FoodTruck();
 		FoodTruck truck2 = new FoodTruck();
@@ -39,9 +40,13 @@ public class FoodTruckApp {
 			allTrucks[i].setTruckName(tkName);
 			allTrucks[i].setFoodType(food);
 			allTrucks[i].setRating(rating);
-			int truckId = allTrucks[i].getTruckId(); 
+			allTrucks[i].setTruckId((int)(Math.random() * 10000));
+			allTrucks[i].getTruckId();		
+	
 			
-			
+
+			System.out.println(allTrucks[i].getTruckId());
+			System.out.println(allTrucks.toString());
 			//Check for duplicate id
 //			for (int n = 0; n < allTrucks.length; n++) {
 //				
@@ -51,13 +56,57 @@ public class FoodTruckApp {
 //			}
 
 		}
-		System.out.println();
-		System.out.println("|--------------------------------------------|");
-		System.out.println("| 1) List all existing food trucks.          |");
-		System.out.println("| 2) See the average rating of food trucks.  |");
-		System.out.println("| 3) Display the highest-rated food truck.   |");
-		System.out.println("| 4) Quit the program.                       |");
-		System.out.println("|--------------------------------------------|");
+		
+		boolean exit = true;
+		
+		while(exit) {
+			
+			System.out.println();
+			System.out.println("Select a number from the menu: ");
+			System.out.println();
+			System.out.println("|--------------------------------------------|");
+			System.out.println("| 1) List all existing food trucks.          |");
+			System.out.println("| 2) See the average rating of food trucks.  |");
+			System.out.println("| 3) Display the highest-rated food truck.   |");
+			System.out.println("| 4) Quit the program.                       |");
+			System.out.println("|--------------------------------------------|");
+		
+			int userInput = kb.nextInt();
+			kb.nextLine();
+		
+			switch(userInput) {
+		
+				case 1: System.out.println(tk.getAllFoodTrucks(allTrucks));
+						break;
+				case 2:	int result = 0; 
+						int count = 0;
+						for (FoodTruck foodTruck : allTrucks) {
+							if(foodTruck.getRating() != 0) {
+								result += foodTruck.getRating();
+								count++;
+							}
+						
+						}
+						System.out.println("The average rating is of food trucks is: " + (result/count));
+						break;
+				case 3: FoodTruck highRated = new FoodTruck();
+						//TODO fix length of 2
+						highRated = allTrucks[0];
+						int high = allTrucks[0].getRating();
+						for (int i =0; i< 2; i++) {
+							if (allTrucks[i+1].getRating() != 0 && allTrucks[i+1].getRating() > high ) {
+								high = allTrucks[i+1].getRating();
+								highRated = allTrucks[i+1];
+							}
+						}
+						System.out.println(highRated);
+						break;
+				case 4: System.out.println("Goodbye");
+						exit = false;
+						break;
+			}
+		}
+	
 	}
 }
 	/*
