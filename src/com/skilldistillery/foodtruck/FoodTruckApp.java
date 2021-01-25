@@ -26,15 +26,16 @@ public class FoodTruckApp {
 		
 		for(int i = 0; i < allTrucks.length; i++) {
 			System.out.println("Enter food truck name or quit if finished entering trucks: ");
-			tkName = kb.next();
+			tkName = kb.nextLine();
 			
 			if(tkName.equals("Quit") || tkName.equals("quit")) {
 				break;
 			}
 			System.out.println("Enter type of food for truck: ");
-			food = kb.next();
+			food = kb.nextLine();
 			System.out.println("Enter the food truck rating: ");
 			rating = kb.nextInt();
+			kb.nextLine();
 			
 			
 			allTrucks[i].setTruckName(tkName);
@@ -45,8 +46,6 @@ public class FoodTruckApp {
 	
 			
 
-			System.out.println(allTrucks[i].getTruckId());
-			System.out.println(allTrucks.toString());
 			//Check for duplicate id
 //			for (int n = 0; n < allTrucks.length; n++) {
 //				
@@ -76,8 +75,19 @@ public class FoodTruckApp {
 		
 			switch(userInput) {
 		
-				case 1: System.out.println(tk.getAllFoodTrucks(allTrucks));
+				//TODO clean up output
+				case 1: for (FoodTruck foodTruck : allTrucks) {
+							if(foodTruck.getTruckName() != null) {
+								
+								System.out.println(foodTruck);
+							}
+							else {
+								break;
+							}
+						}
 						break;
+				
+				//TODO add double to output avg
 				case 2:	int result = 0; 
 						int count = 0;
 						for (FoodTruck foodTruck : allTrucks) {
@@ -89,18 +99,20 @@ public class FoodTruckApp {
 						}
 						System.out.println("The average rating is of food trucks is: " + (result/count));
 						break;
+
+				//TODO display multiple tied high scores
 				case 3: FoodTruck highRated = new FoodTruck();
-						//TODO fix length of 2
 						highRated = allTrucks[0];
-						int high = allTrucks[0].getRating();
-						for (int i =0; i< 2; i++) {
-							if (allTrucks[i+1].getRating() != 0 && allTrucks[i+1].getRating() > high ) {
-								high = allTrucks[i+1].getRating();
-								highRated = allTrucks[i+1];
+						int high =0;
+						for (FoodTruck foodTruck : allTrucks) {
+							if(foodTruck.getRating() > high) {
+								high = foodTruck.getRating();
+								highRated = foodTruck;
 							}
 						}
 						System.out.println(highRated);
 						break;
+				
 				case 4: System.out.println("Goodbye");
 						exit = false;
 						break;
